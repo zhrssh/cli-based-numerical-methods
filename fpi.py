@@ -51,7 +51,7 @@ class FixedPointIteration:
         # Print final root
         if isradian == False:
             print(f"No. of iterations: {iterations} | Root: {self.x0:.12f} or {self.x0:.4f}")
-        else
+        else:
             print(f"No. of iterations: {iterations} | Root: {math.radians(self.x0):.12f} or {math.radians(self.x0):.4f}")
 
 
@@ -65,7 +65,7 @@ def main():
     b = input("b: ")
     dof = input("dof: ")
     isradian = input("in radians? y/n: ")
-    isradian = (isradian == 'y') ? True : False
+    isradian = True if isradian == 'y' else False
 
     myProgram.fpi(eq, gx, a, b, dof, isradian)
 

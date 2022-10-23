@@ -1,14 +1,17 @@
+from sympy import *
+import numpy as np
+import math
+
+x, y, z = symbols("x y z")
 class Bisection:	
 	def __init__(self, fox, a, b, DOF):
-		
 		# Conditions
 		if a > b:
-			print("a must be less than b")
-			return
+			raise Exception(f"a must be less than b")
 		
-		if self.Evaluate(fox, a) * self.Evaluate(fox, b) > 0:
-			print("f(a) * f(b) must be less than 0")
-			return
+		val = fox.evalf(subs={x: a},chop=True) * fox.evalf(subs={x: b},chop=True)
+		if val > 0:
+			raise Exception(f"f(a) * f(b) must be less than 0, got {val}")
 		
 		self.Compute(fox, a, b, DOF)
 	def Compute(self, fox, a, b, DOF):
@@ -20,12 +23,12 @@ class Bisection:
 		error = DOF
 		c = (a + b) / 2.0
 		iteration = 0
-		while abs(self.Evaluate(fox, c)) > error:
+		while abs(fox.evalf(subs={x: c})) > error:
 			# get c
 			c = (a + b) / 2.0
 		
 			# substitute c to fox
-			foc = self.Evaluate(fox, c)
+			foc = fox.evalf(subs={x: c})
 			
 			# check if foc is < or > 0
 			if foc < 0:
@@ -42,12 +45,7 @@ class Bisection:
 				
 		print(f"Root is: {c:.12f}")
 		print(f"No. of iterations: {iteration}")
-
-	
-	def Evaluate(self, formula, value):
-		formula = formula.replace("x", f"{value}")
-		formula = eval(formula)
-		return formula
+		
 
 def e(x):
 	return math.exp(x)		
@@ -55,7 +53,7 @@ def e(x):
 def main():
 	print("Bisection Method Calculator\n")
 
-	formula = input("Input formula (for e, use e(x)): ")
+	formula = sympify(input("Input formula (for e, use e(x)): "))
 	a = float(input("Input a: "))
 	b = float(input("Input b: "))
 	DOF = float(input("Input DOF: "))
