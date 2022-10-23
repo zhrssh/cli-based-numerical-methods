@@ -1,6 +1,4 @@
-import numpy as np
 from sympy import *
-import math
 
 class FixedPointIteration:
     def __init__(self):
@@ -38,6 +36,9 @@ class FixedPointIteration:
         }
 
         # Solve
+
+        print(f"\n\nComputing for Fixed Point Iteration of: {fox}\n")
+
         iterations = 0
         prev_x0 = 0
         while abs(gx.evalf(subs={x: self.x0}) - prev_x0) > dof:

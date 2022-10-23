@@ -1,6 +1,4 @@
 from sympy import *
-import numpy as np
-import math
 
 x, y, z = symbols("x y z")
 class Bisection:	
@@ -15,7 +13,7 @@ class Bisection:
 		
 		self.Compute(fox, a, b, DOF)
 	def Compute(self, fox, a, b, DOF):
-		print(f"Computing for Bisection of: {fox}")
+		print(f"\n\nComputing for Bisection of: {fox}\n")
 		
 		# test is fox = 2x^3 - 2x - 5 -> (2 * (x ** 3)) - (2 * x) - 5)
 		# fox = "((2 * (x ** 3)) - (2 * x) - 5)"
@@ -45,21 +43,16 @@ class Bisection:
 				
 		print(f"Root is: {c:.12f}")
 		print(f"No. of iterations: {iteration}")
-		
-
-def e(x):
-	return math.exp(x)		
 
 def main():
 	print("Bisection Method Calculator\n")
 
-	formula = sympify(input("Input formula (for e, use e(x)): "))
+	formula = sympify(input("Input formula (for e, use exp(x)): "))
 	a = float(input("Input a: "))
 	b = float(input("Input b: "))
 	DOF = float(input("Input DOF: "))
 	
 	myProgram = Bisection(formula, a, b, DOF)
-	
 	
 if __name__ == "__main__":
 	main()
