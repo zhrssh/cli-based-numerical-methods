@@ -34,7 +34,7 @@ class FalsePosition:
 				a = c
 				
 			# print values
-			print(f"c is {c:.12f} at iteration no. {iteration}")
+			print(f"\nc is {c:.12f} at iteration no. {iteration}")
 			print(f"foc = {fox.evalf(subs={x: c}):.12f}")
 			
 		print(f"Root is: {c:.12f}")

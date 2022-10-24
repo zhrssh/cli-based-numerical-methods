@@ -38,7 +38,7 @@ class Bisection:
 			iteration = iteration + 1
 			
 			# print
-			print(f"c is {c:.12f} at iteration no: {iteration}")
+			print(f"\nc is {c:.12f} at iteration no: {iteration}")
 			print(f"foc  = {foc:.12f}")
 				
 		print(f"Root is: {c:.12f}")

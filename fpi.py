@@ -1,4 +1,5 @@
 from sympy import *
+import math
 
 class FixedPointIteration:
     def __init__(self):
@@ -37,7 +38,7 @@ class FixedPointIteration:
 
         # Solve
 
-        print(f"\n\nComputing for Fixed Point Iteration of: {fox}\n")
+        print(f"\n\nComputing for Fixed Point Iteration of: {eq}\n")
 
         iterations = 0
         prev_x0 = 0
